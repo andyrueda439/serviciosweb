@@ -10,6 +10,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ni.edu.uam.servicios_web.model.Usuario;
 import ni.edu.uam.servicios_web.service.UsuarioService;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import java.io.IOException;
 
 import java.util.List;
 
@@ -68,5 +72,18 @@ public class UsuarioController {
         Thread hilo = new Thread(tarea);
         hilo.setDaemon(true);
         hilo.start();
+    }
+    @FXML
+    private void abrirClientes() {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/ni/edu/uam/servicios_web/clientes-view.fxml"));
+            Stage ventana = new Stage();
+            ventana.setTitle("Consulta de clientes - API REST (Supabase)");
+            ventana.setScene(new Scene(loader.load()));
+            ventana.show();
+        } catch (IOException e) {
+            lblEstado.setText("No se pudo abrir la vista de clientes: " + e.getMessage());
+        }
     }
 }

@@ -23,6 +23,7 @@
         <HBox alignment="CENTER_LEFT" spacing="12.0">
             <children>
                 <Button fx:id="btnConsultar" mnemonicParsing="false" onAction="#consultar" text="Consultar usuarios" />
+                <Button mnemonicParsing="false" onAction="#abrirClientes" text="Clientes (API Key)" />
                 <Label fx:id="lblEstado" text="Haga click en el boton &quot;Consultar usuarios&quot;" />
             </children>
         </HBox>
